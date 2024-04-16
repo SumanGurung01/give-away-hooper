@@ -2,32 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .center {
+    @apply flex justify-center items-center;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .navbar-button {
+    @apply center h-20 border-b-4 border-white px-4 duration-200 hover:border-green-500 hover:bg-zinc-100;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.float1 {
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.float2 {
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-delay: -1s;
+  animation-iteration-count: infinite;
+}
+
+.float3 {
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-delay: -2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0%, 0%)
+  }
+
+  50% {
+    transform: translate(0%, 10%)
+  }
+
+  100% {
+    transform: translate(0%, 0%)
   }
 }
+
+/* 
+@keyframes bounce2 {
+  0% {
+    transform: translate(0%, 0%)
+  }
+
+  50% {
+    transform: translate(0%, -10%)
+  }
+
+  100% {
+    transform: translate(0%, 0%)
+  }
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: translate(0%, 0%)
+  }
+
+  50% {
+    transform: translate(0%, 20%)
+  }
+
+  100% {
+    transform: translate(0%, 0%)
+  }
+} */
